@@ -14,6 +14,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
+import util.Register;
+
 public class RegisterGUI extends JFrame{
 	 private JPanel contentPane;
 	 private JTextField nametext;  
@@ -68,7 +70,41 @@ public class RegisterGUI extends JFrame{
 	    	   
 	    	   @Override
 	    	   public void mouseClicked(MouseEvent e){
+	    		   String name = nametext.getText();
 	    		   
+	    		   String id = IDtext.getText();
+	    		   
+	    		   String password = passwdtext.getText();
+	    		   
+	    		   String id_check_msg;
+	    		   
+	    		   String password_check_msg;
+	    		   
+	    		   if((id_check_msg = Register.setID(id)) == null){//id format OK
+	    			   
+	    			   if((password_check_msg = Register.setPassword(password))==null)
+	    			   {//password format OK
+	    				   
+	    				   String notice = Register.register(name, password, id);
+	    				   
+	    				   JOptionPane.showMessageDialog(contentPane,notice,"information",
+	    						   JOptionPane.PLAIN_MESSAGE);
+	    				   
+	    				   
+	    				   setVisible(false);
+	    				   
+	    				   new IndexGUI().init(); // go back to index page
+	    			   }else{
+	    				   
+	    				   JOptionPane.showMessageDialog(contentPane,password_check_msg, 
+	    						   "ERROR", JOptionPane.ERROR_MESSAGE);
+	    			   }
+	    			   
+	    		   }else{
+	    			   
+	    			   JOptionPane.showMessageDialog(contentPane,id_check_msg, 
+    						   "ERROR", JOptionPane.ERROR_MESSAGE);
+	    		   }
 	    	   }
 	       });
 	       

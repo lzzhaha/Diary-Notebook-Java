@@ -32,6 +32,24 @@ public class UserGUI extends JFrame{
 	
 	private static  String pathname;
 	
+	public static void init(String path) { //set the name of the user as the pathname for storation
+        pathname = path;
+        
+        EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                try {
+                    UserGUI frame = new UserGUI();
+                    frame.setVisible(true);
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+	
+	
+	
 	public UserGUI(){
 	
 	        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -73,7 +91,7 @@ public class UserGUI extends JFrame{
 	                internalFrame_Read.getContentPane().add(txtDiary);
 
 	    
-	                javax.swing.text.Document doc=txtDiary.getDocument();
+	                javax.swing.text.Document doc = txtDiary.getDocument();
 	                txtDiary.setBackground(Color.GREEN);
 	                txtDiary.setEditable(false);
 
@@ -83,7 +101,7 @@ public class UserGUI extends JFrame{
 	                 
 	                    File file = chooser.getSelectedFile();
 
-	                    
+	                    Diary.read(file, doc);
 	                    if(file.exists()) {    
 
 	                        internalFrame_Read.setVisible(true);
@@ -99,7 +117,7 @@ public class UserGUI extends JFrame{
 	            @Override
 	            public void mouseClicked(MouseEvent e) {
 
-	           
+	            	
 	                final JInternalFrame internalFrame_Write = new JInternalFrame("Create a diary",false, true, false, false);
 
 
@@ -123,7 +141,7 @@ public class UserGUI extends JFrame{
 	                editorPane.setBounds(0, 31, 568, 179);
 	                internalFrame_Write.getContentPane().add(editorPane);
 
-	                JButton save = new JButton("SAVE");//????
+	                JButton save = new JButton("SAVE");
 	                save.setBounds(465, 213, 93, 23);
 	                save.addMouseListener(new MouseAdapter() {
 	                    public void mouseClicked(MouseEvent e) {
@@ -132,7 +150,7 @@ public class UserGUI extends JFrame{
 	                        
 	                        String txt = editorPane.getText();
 	                  
-
+	                        Diary.addDiary(pathname, title, txt);
 	                        internalFrame_Write.setVisible(false);
 	                    }
 	                });

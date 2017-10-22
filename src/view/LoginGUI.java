@@ -17,7 +17,6 @@ import javax.swing.border.EmptyBorder;
 
 import util.JDOM;
 
-
 public class LoginGUI extends JFrame{
 	
 	private static final long serialVersionUID = 4994949944841194839L;
@@ -125,6 +124,26 @@ public class LoginGUI extends JFrame{
 		});
 	}
 	private void event_login(){
+		String id = IDtxt.getText();
 		
+		String password = new String(passwordField.getPassword());
+		
+		String flag = JDOM.read(id, password);
+		
+		if(flag.contains("Succeed")){
+			
+			  JOptionPane.showMessageDialog(contentPane, flag, "Diary_Notebook",JOptionPane.PLAIN_MESSAGE);
+	          
+			  //get Name 
+			  String[] buffer = flag.split(" ");
+			  
+			  new UserGUI().init(buffer[1]);
+	          
+	          setVisible(false);
+		}else{
+			
+			JOptionPane.showMessageDialog(contentPane,
+					flag,"ERROR",JOptionPane.ERROR_MESSAGE);
+		}
 	}
 }
