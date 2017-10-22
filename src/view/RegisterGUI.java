@@ -26,7 +26,7 @@ public class RegisterGUI extends JFrame{
 	 public RegisterGUI(){
 		 
 		  setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		  setBounds(100, 100, 650, 400);
+		  setBounds(100, 100, 3000, 1000);
 		  contentPane = new JPanel();
 		  contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		  setContentPane(contentPane);
@@ -34,32 +34,32 @@ public class RegisterGUI extends JFrame{
 	
 		  JLabel namelabel = new JLabel("Please enter your name"); 
 		  
-		  namelabel.setBounds(102, 91, 151, 23);
+		  namelabel.setBounds(102, 91, 250, 23);
 		  contentPane.add(namelabel);
 		  
 	        JLabel IDlabel = new JLabel("Please enter your ID");
-	        IDlabel.setBounds(102, 160, 151, 23);
+	        IDlabel.setBounds(102, 160, 250, 23);
 	        contentPane.add(IDlabel);
 
 
 	        JLabel passwdlaber = new JLabel("Please enter password");
-	        passwdlaber.setBounds(102, 224, 163, 23);
+	        passwdlaber.setBounds(102, 224, 250, 23);
 	        contentPane.add(passwdlaber);
 
 	        nametext = new JTextField();  
-	        nametext.setBounds(271, 92, 92, 21); 
+	        nametext.setBounds(300, 92, 92, 21); 
 	        contentPane.add(nametext);
 	        nametext.setColumns(10);  
 
 	       
 	        IDtext = new JTextField();
-	        IDtext.setBounds(271, 161, 92, 21);
+	        IDtext.setBounds(300, 161, 92, 21);
 	        contentPane.add(IDtext);
 	        IDtext.setColumns(8);
 
 	     
 	        passwdtext = new JTextField();
-	        passwdtext.setBounds(271, 225, 92, 21);
+	        passwdtext.setBounds(300, 225, 92, 21);
 	        contentPane.add(passwdtext);
 	        passwdtext.setColumns(10);
 
@@ -134,11 +134,11 @@ public class RegisterGUI extends JFrame{
 	       contentPane.add(label);
 
 	       JLabel lblNewLabel = new JLabel("(ID length should be 1 to 8 digits)");
-	       lblNewLabel.setBounds(373, 164, 163, 15);
+	       lblNewLabel.setBounds(400, 164, 400, 15);
 	       contentPane.add(lblNewLabel);
 
-	       JLabel lblNewLabel_1 = new JLabel("(password length should be 1 to 6 digits)");
-	       lblNewLabel_1.setBounds(373, 228, 163, 15);
+	       JLabel lblNewLabel_1 = new JLabel("(password length should be 6 to 15 digits)");
+	       lblNewLabel_1.setBounds(400, 228, 400, 15);
 	       contentPane.add(lblNewLabel_1);
 	 }
 	 

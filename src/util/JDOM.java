@@ -38,7 +38,7 @@ public class JDOM {
 			
 			
 			
-			if(checkID(id, root)){//OK to register
+			if(!checkID(id, root)){//OK to register
 				
 
 				Element user = new Element("User");
@@ -87,9 +87,8 @@ public class JDOM {
 	
 	
 	//Check whether the given ID already exist
+	//return true if ID already exists
 	public static boolean checkID(String id, Element root){
-		
-		boolean result = true;
 		
 		List<Element> users = root.getChildren();
 		
@@ -100,14 +99,13 @@ public class JDOM {
 			
 			Element user = (Element) it.next();
 			
-			if(user.getAttribute("id").equals(id)){
+			if(user.getAttributeValue("id").equals(id)){
 				
-				result = false;
-				break;
+				return true;
 			}
 		}
 		
-		return result;
+		return false;
 	}
 	
 	
@@ -137,7 +135,7 @@ public class JDOM {
 				
 				String[] buffer = info.split("/");
 				
-				if(buffer[1] == password){
+				if(buffer[1].equals(password)){
 					
 					return "Welcome! " + buffer[0];
 				}else{
@@ -177,9 +175,9 @@ public class JDOM {
 			
 			String id = user.getAttributeValue("id");
 			
-			String name = user.getAttributeValue("name");
+			String name = user.getChildText("name");
 			
-			String password = user.getAttributeValue("password");
+			String password = user.getChildText("password");
 			
 			info.put(id, name + "/" + password);
 			

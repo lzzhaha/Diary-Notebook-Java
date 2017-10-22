@@ -20,7 +20,7 @@ public class IndexGUI extends JFrame{
 	
 	public IndexGUI(){
 		
-		 setTitle("KnowYou"); 
+		 setTitle("NoteBook"); 
 
 		 setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
 		        

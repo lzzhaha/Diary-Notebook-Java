@@ -37,21 +37,21 @@ public class LoginGUI extends JFrame{
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		JLabel IDlabel = new JLabel("Please enter ID");//ID??
-		IDlabel.setBounds(68, 170, 100, 39);
+		JLabel IDlabel = new JLabel("Please enter ID");
+		IDlabel.setBounds(68, 170, 250, 39);
 		contentPane.add(IDlabel);
 
 		IDtxt = new JTextField();
-		IDtxt.setBounds(220, 179, 126, 21);
+		IDtxt.setBounds(400, 179, 126, 21);
 		contentPane.add(IDtxt);
 		IDtxt.setColumns(10);
 
 		Passwdlabel = new JLabel("Please enter password");
-		Passwdlabel.setBounds(68, 219, 150, 50);
+		Passwdlabel.setBounds(68, 219, 250, 50);
 		contentPane.add(Passwdlabel);
 
 		passwordField = new JPasswordField();
-		passwordField.setBounds(220, 234, 126, 21);
+		passwordField.setBounds(400, 234, 126, 21);
 		contentPane.add(passwordField);
 
 		login_button = new JButton("login");
@@ -123,6 +123,8 @@ public class LoginGUI extends JFrame{
 			}
 		});
 	}
+	
+	
 	private void event_login(){
 		String id = IDtxt.getText();
 		
@@ -130,7 +132,7 @@ public class LoginGUI extends JFrame{
 		
 		String flag = JDOM.read(id, password);
 		
-		if(flag.contains("Succeed")){
+		if(flag.contains("Welcome")){
 			
 			  JOptionPane.showMessageDialog(contentPane, flag, "Diary_Notebook",JOptionPane.PLAIN_MESSAGE);
 	          

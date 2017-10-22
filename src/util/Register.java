@@ -17,7 +17,7 @@ public class Register {
 	
 	public static String setID(String id){
 		
-		if(id.matches("//d{1,8}")){//id must contain 1 to 8 digits
+		if(id.matches("\\d{1,8}")){//id must contain 1 to 8 digits
 			
 			user.setID(id);
 			
@@ -31,7 +31,7 @@ public class Register {
 	
 	public static String setPassword(String password){
 		
-		if(password.matches("//d{6,15}")){
+		if(password.matches("\\d{6,15}")){
 			
 			user.setPassword(password);
 			return null;
